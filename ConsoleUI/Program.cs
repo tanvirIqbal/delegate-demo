@@ -15,7 +15,7 @@ namespace ConsoleUI
         {
             PopulateCartWithDemoData();
 
-            Console.WriteLine($"The total for the cart is {cart.GenerateTotal(SubTotalAlert, CalculateDiscountedTotal):C2}");
+            Console.WriteLine($"The total for the cart is {cart.GenerateTotal(SubTotalAlert, CalculateDiscountedTotal, AlertDiscount):C2}");
 
             Console.WriteLine();
             Console.Write("Please press any key to exit the application...");
@@ -25,6 +25,11 @@ namespace ConsoleUI
         private static void SubTotalAlert(decimal subTotal)
         {
             Console.WriteLine($"The subtotal is {subTotal:C2}");
+        }
+
+        private static void AlertDiscount(string message)
+        {
+            Console.WriteLine(message);
         }
 
         private static decimal CalculateDiscountedTotal(List<ProductModel> items, decimal subTotal)
